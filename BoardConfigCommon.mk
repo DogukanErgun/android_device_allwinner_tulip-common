@@ -1,0 +1,44 @@
+# Primary Arch
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_ABI := arm64-v8a
+
+# Secondary Arch
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_VARIANT := cortex-a15
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+
+TARGET_USES_64_BIT_BINDER := true
+TARGET_SUPPORTS_32_BIT_APPS := true
+TARGET_SUPPORTS_64_BIT_APPS := true
+
+TARGET_BOARD_PLATFORM := tulip
+ANDROID_64=true
+TARGET_USE_NEON_OPTIMIZATION := true
+
+TARGET_CPU_SMP := true
+
+TARGET_NO_BOOTLOADER := true
+
+TARGET_BOOTLOADER_BOARD_NAME := exdroid
+TARGET_BOOTLOADER_NAME := exdroid
+
+BOARD_EGL_CFG := device/softwinner/tulip-common/egl/egl.cfg
+BOARD_KERNEL_BASE := 0x41000000
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x80000
+
+BOARD_CHARGER_ENABLE_SUSPEND := true
+
+BOARD_SEPOLICY_DIRS := \
+    device/softwinner/tulip-common/sepolicy
+
+#SurfaceFlinger's configs
+#NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+#TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+
+USE_OPENGL_RENDERER := true
+
+

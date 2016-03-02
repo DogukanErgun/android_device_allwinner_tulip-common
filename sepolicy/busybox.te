@@ -1,0 +1,8 @@
+type busybox, domain;
+
+permissive busybox;
+
+allow busybox rootfs:file { execute_no_trans };
+allow busybox block_device:dir { write add_name create setattr };
+allow busybox block_device:lnk_file { create };
+allow busybox block_device:blk_file { setattr };

@@ -1,0 +1,19 @@
+allow init block_device:blk_file setattr;
+allow init shell_data_file:dir { write add_name };
+allow init shell_data_file:file create_file_perms;
+allow init vfat:dir { search mounton write add_name };
+allow init vfat:file { create read write open };
+allow init tmpfs:lnk_file create_file_perms;
+allow init block_device:blk_file rw_file_perms;
+allow init self:capability sys_module;
+allow init sdcardd_exec:file { getattr };
+# allow init system_file:dir { write }; fix me
+
+allow logd kmsg_device:chr_file { write getattr }; 
+allow logd self:capability { dac_override };
+
+permissive init;
+permissive fsck;
+permissive toolbox;
+
+domain_trans(init, rootfs, busybox)
